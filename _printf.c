@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
+#include <unistd.h>
 
 int _printf(const char *, ...);
 
@@ -8,7 +9,6 @@ int main()
     _printf("Hello World %i", 2);
     return 0;
 }
-
 
 int _printf(const char *format, ...)
 {
@@ -23,12 +23,11 @@ int _printf(const char *format, ...)
     {
         if (format[j] == '%')
         {
-            write(1, format + i, j);
-            write(1, "2", j);
+            write(1, format , j);
             i = j;
         }
     }
-    // write(1, format + i, j);
+    write(1, format + i, j - i);
     
     va_end (args);              
 
