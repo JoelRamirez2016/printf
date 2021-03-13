@@ -6,12 +6,15 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-int _printf(const char *, ...);
+#define BUFF_SIZE 1024
 
+int _printf(const char *, ...);
+int place_s(va_list args, char *buff, int *b_cnt);
+int place_c(va_list args, char *buff, int *b_cnt);
 typedef struct placeholders
 {
 	char c;
-	int (*f)(va_list, char *, int *);
+	int (*place_function)(va_list, char *, int *);
 } placeholders;
 
 
@@ -19,7 +22,7 @@ typedef struct placeholders
 /* miscellaneous functions */
 
 int _strlen(char *);
-char *_strcpy(char *dest, char *src);
 char *_strncpy(char *dest, char *src, int n);
+int fillnewbuff(char *buff, char *src, int n, int buff_size, int *b_cnt);
 
 #endif
