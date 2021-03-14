@@ -1,5 +1,10 @@
 #include "seb_holberton.h"
 
+/**
+ * _printf - prints buffer
+ * @format: format to print buffer
+ * Return: return number of bytes printed
+ */
 int _printf(const char *format, ...)
 {
 	va_list args;
@@ -46,6 +51,15 @@ int _printf(const char *format, ...)
 	return (BUFF_SIZE * used_buff + b_cnt);
 }
 
+
+/**
+ * place_s - finds string in args and copy it to buffer, in
+ * case the buffers fill up. buffer is printed and emptied.
+ * @args: argument list
+ * @buff: buffer
+ * @b_cnt: bytes printed counter
+ * Return: return number of new buffers needed to print string
+ */
 int place_s(va_list args, char *buff, int *b_cnt)
 {
 	char *s = va_arg(args, char *);
@@ -70,6 +84,14 @@ int place_s(va_list args, char *buff, int *b_cnt)
 	return (new_buffs);
 }
 
+/**
+ * place_c - finds char in args and copy it to buffer, in
+ * case the buffers fill up. buffer is printed and emptied.
+ * @args: argument list
+ * @buff: buffer
+ * @b_cnt: bytes printed counter
+ * Return: return number of new buffers needed to print string
+ */
 int place_c(va_list args, char *buff, int *b_cnt)
 {
 	char c = va_arg(args, int);
@@ -90,6 +112,14 @@ int place_c(va_list args, char *buff, int *b_cnt)
 }
 
 
+/**
+ * place_d - finds int in args and copy it to buffer, in
+ * case the buffers fill up. buffer is printed and emptied.
+ * @args: argument list
+ * @buff: buffer
+ * @b_cnt: bytes printed counter
+ * Return: return number of new buffers needed to print string
+ */
 int place_d(va_list args, char *buff, int *b_cnt)
 {
 	int num = va_arg(args, int);
