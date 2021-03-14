@@ -38,3 +38,27 @@ int fillnewbuff(char *buff, char *src, int to_write, int buff_size, int *b_cnt)
 				buff_size, b_cnt);
 	return (used_buff + 1);
 }
+
+char *_itoa(int num, char *nums)
+{
+	int i = 10, negative = 0, digit;
+
+	nums[11] = 0;
+	if (num < 0)
+	{
+		negative = 1;
+	}
+	do {
+		digit = num % 10;
+		digit = (digit < 0) ? -digit : digit;
+		nums[i] = digit + '0';
+		num = num / 10;
+		i--;
+	} while (num);
+	if (negative)
+	{
+		nums[i] = '-';
+		return (nums + i);
+	}
+	return (nums + i + 1);
+}
