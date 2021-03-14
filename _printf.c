@@ -38,6 +38,7 @@ int _printf(const char *format, ...)
 						ph[i].place_function
 						(args, buff, &b_cnt);
 					trav++;
+					break;
 				}
 			}
 			if (!ph[i].c)
