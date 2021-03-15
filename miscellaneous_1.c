@@ -67,12 +67,12 @@ int fillnewbuff(char *buff, char *src, int to_write, int buff_size, int *b_cnt)
  * @nums: buffer of minimun 12 bytes to storage the number as a string
  * Return: pointer to first byte of number as a string
  */
-char *_itoa(int num, char *nums)
+char *_itoa(char sign, unsigned int num, char *nums)
 {
 	int i = 10, negative = 0, digit;
 
 	nums[11] = 0;
-	if (num < 0)
+	if (sign == '-')
 	{
 		negative = 1;
 	}

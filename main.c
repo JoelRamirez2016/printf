@@ -29,10 +29,14 @@ int main(void)
 
         len = _printf("394 in octal is: %o\n", 394);
         printf("len = %d\n", len);
+	
+        len = _printf("unsigned n random %u \n", 98564);
+	len2 = printf("unsigned n random %u \n", 98564);
+	printf("len = %d len2 = %d\n", len, len2);
 
-	len = _printf("%%%%%%%%%%\n");
-	printf("len = %d\n", len);
-
+	len = _printf("unsigned n negative %u \n", -2);
+        len2 = printf("unsigned n negative %u \n", -2);
+	printf("len = %d len2 = %d\n", len, len2);
 	/* len = _printf("%s\n", NULL); */
 
 	return (0);

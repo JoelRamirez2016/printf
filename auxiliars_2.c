@@ -57,3 +57,37 @@ int place_o(va_list args, char *buff, int *b_cnt)
 	}
 	return (new_buffs);
 }
+
+int place_u(va_list args, char *buff, int *b_cnt)
+{
+
+        int num = va_arg(args, int);
+        unsigned int number;
+        int new_buffs = 0, len, available;
+        char num_holder[12], *num_s;
+
+        if (num < 0)
+                number = UINT_MAX + (num + 1);
+        else
+                number = num;
+
+    num_s = _itoa('+', number, num_holder);
+    len = _strlen(num_s);
+    available = BUFF_SIZE - *b_cnt;
+
+    if (available >= len)
+    {
+            _strncpy(buff + *b_cnt, num_s, len);
+            (*b_cnt) += len;
+    }
+    else
+    {
+            _strncpy(buff + *b_cnt, num_s, available);
+            write(1, buff, BUFF_SIZE);
+            (*b_cnt) = 0;
+            new_buffs += fillnewbuff(buff, num_s + available, len - available,
+                        BUFF_SIZE, b_cnt);
+
+    }
+    return (new_buffs);
+}

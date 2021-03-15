@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 		{'i', place_d},
 		{'S', place_S},
 		{'b', place_b},
-	/*	{'u', place_u}, */
+		{'u', place_u},
 		{'o', place_o},
 		{'x', place_x},
 		{'X', place_X},

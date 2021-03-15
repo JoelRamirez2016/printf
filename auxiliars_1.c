@@ -113,7 +113,11 @@ int place_d(va_list args, char *buff, int *b_cnt)
 	int new_buffs = 0, len, available;
 	char num_holder[12], *num_s;
 
-	num_s = _itoa(num, num_holder);
+	if (num < 0)
+		num_s = _itoa('-', -num, num_holder);
+	else
+		num_s = _itoa('+', num, num_holder);
+
 	len = _strlen(num_s);
 	available = BUFF_SIZE - *b_cnt;
 
