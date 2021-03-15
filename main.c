@@ -19,6 +19,17 @@ int main(void)
 	len = _printf("128 binary is: %b\n", 5 );
 	printf("len = %d\n", len);
 
+	len = _printf("394 in hex min is: %x\n", 394);
+        printf("len = %d\n", len);
+
+
+        len = _printf("394 in hex MAX is: %X\n", 394);
+        printf("len = %d\n", len);
+
+
+        len = _printf("394 in octal is: %o\n", 394);
+        printf("len = %d\n", len);
+
 	/* len = _printf("%s\n", NULL); */
 
 	return (0);

@@ -64,45 +64,27 @@ char *_itoa(int num, char *nums)
 }
 
 
-char *_itobi(unsigned int n, char *buff, int size)
+char *conv_non_printable(char *s)
 {
-	if (size == 31)
+	int len, i, s_cnt = 0;
+	char *s_converted;
+
+	len = _strlen(s) + 1;
+	s_converted = malloc(sizeof(*s_converted) * len);
+	for (i = 0; s[i]; i++)
 	{
-		buff[size + 1] = 0;
-		if (!n)
+		if (s[i] >= 32 && s[i] <= 126)
+			s_converted[s_cnt++] = s[i];
+		else
 		{
-		    buff[size] = '0';
-		    return (buff + size);
+			s_converted = _realloc(s_converted, len, len + 4);
+			len += 4;
+			s_converted[s_cnt++] = '\\';
+			s_converted[s_cnt++] = 'x';
+			itohex_2bytes(s[i], s_converted + s_cnt);
+			s_cnt += 2;
 		}
 	}
-	if (!n)
-		return (buff + size + 1);
-	buff[size] = n % 2 + '0';
-	return (_itobi(n / 2, buff, size - 1));
+	return (s_converted);
 }
 
-char *_itoX(int n, char *buff, int size_b)
-{
-	if (!n)
-		return (buff + size_b);
-
-	if (n % 16 < 10)
-		buff[size_b - 1]= (n % 16) + 48;
-	else
-		buff[size_b - 1]= (n % 16) + 55;
-
-	_itox(n/16, buff, size_b - 1);
-}
-
-char *_itox(int n, char *buff, int size_b)
-{
-	if (!n)
-		return (buff + size_b);
-
-	if (n % 16 < 10)
-		buff[size_b - 1]= (n % 16) + 48;
-	else
-		buff[size_b - 1]= (n % 16) + 87;
-
-	_itox(n/16, buff, size_b - 1);
-}

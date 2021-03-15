@@ -11,7 +11,12 @@ int _printf(const char *format, ...)
 		{'s', place_s},
 		{'d', place_d},
 		{'i', place_d},
+		{'S', place_S},
 		{'b', place_b},
+	/*	{'u', place_u}, */
+		{'o', place_o},
+		{'x', place_x},
+		{'X', place_X},
 		{0, NULL}
 	};
 
@@ -51,4 +56,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (BUFF_SIZE * used_buff + b_cnt);
 }
-
