@@ -28,7 +28,7 @@ int _strlen(char *);
 char *_strncpy(char *dest, char *src, int n);
 int fillnewbuff(char *buff, char *src, int n, int buff_size, int *b_cnt);
 char *_itoa(int num, char *nums);
-char *convert_non_printable_characters(char *s);
+char *conv_non_printable(char *s);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-
+void itohex_2bytes(int n, char *dest);
 #endif

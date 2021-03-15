@@ -48,3 +48,19 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	free(ptr);
 	return ((void *)nptr);
 }
+
+void itohex_2bytes(int n, char *dest)
+{
+	char *nums_ascii = "ABCDEF";
+	int i, digit;
+
+	for (i = 1; i >= 0; i--)
+	{
+		digit = n % 16;
+		n = n / 16;
+		if (digit < 10)
+			dest[i] = digit + '0';
+		else
+			dest[i] = nums_ascii[digit - 10];
+	}
+}

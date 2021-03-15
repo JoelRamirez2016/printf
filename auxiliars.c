@@ -29,7 +29,7 @@ int place_S(va_list args, char *buff, int *b_cnt)
 	char *s = va_arg(args, char *);
 	int new_buffs = 0, len, available;
 
-	s = convert_non_printable_characters(s);
+	s = conv_non_printable(s);
 	len = _strlen(s);
 	available = BUFF_SIZE - *b_cnt;
 
@@ -46,6 +46,7 @@ int place_S(va_list args, char *buff, int *b_cnt)
 		new_buffs += fillnewbuff(buff, s + available, len - available,
 			    BUFF_SIZE, b_cnt);
 	}
+	free(s);
 	return (new_buffs);
 }
 
