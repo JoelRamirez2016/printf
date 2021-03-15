@@ -81,4 +81,28 @@ char *_itobi(unsigned int n, char *buff, int size)
 	return (_itobi(n / 2, buff, size - 1));
 }
 
+char *_itoX(int n, char *buff, int size_b)
+{
+	if (!n)
+		return (buff + size_b);
 
+	if (n % 16 < 10)
+		buff[size_b - 1]= (n % 16) + 48;
+	else
+		buff[size_b - 1]= (n % 16) + 55;
+
+	_itox(n/16, buff, size_b - 1);
+}
+
+char *_itox(int n, char *buff, int size_b)
+{
+	if (!n)
+		return (buff + size_b);
+
+	if (n % 16 < 10)
+		buff[size_b - 1]= (n % 16) + 48;
+	else
+		buff[size_b - 1]= (n % 16) + 87;
+
+	_itox(n/16, buff, size_b - 1);
+}
