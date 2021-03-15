@@ -30,6 +30,9 @@ int main(void)
         len = _printf("394 in octal is: %o\n", 394);
         printf("len = %d\n", len);
 
+	len = _printf("%%%%%%%%%%\n");
+	printf("len = %d\n", len);
+
 	/* len = _printf("%s\n", NULL); */
 
 	return (0);

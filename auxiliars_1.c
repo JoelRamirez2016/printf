@@ -176,7 +176,7 @@ int place_x(va_list args, char *buff, int *b_cnt)
 
 	num_holder[10]= 0;
 
-	num_s = base_convert(num_holder, 10,num, 16, 55);
+	num_s = base_convert(num_holder, 10,num, 16, 87);
 	len = _strlen(num_s);
 	available = BUFF_SIZE - *b_cnt;
 
