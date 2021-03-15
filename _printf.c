@@ -100,6 +100,6 @@ void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 			b_cnt = 0;
 		}
 		buff[(*b_cnt)++] = '%';
-		trav++;
+		(*trav)++;
 	}
 }
