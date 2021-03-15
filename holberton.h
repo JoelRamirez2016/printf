@@ -17,6 +17,7 @@ typedef struct placeholders
 
 
 int _printf(const char *, ...);
+int trav_format(va_list args, placeholders *ph, const char *format);
 int place_s(va_list args, char *buff, int *b_cnt);
 int place_c(va_list args, char *buff, int *b_cnt);
 int place_d(va_list args, char *buff, int *b_cnt);

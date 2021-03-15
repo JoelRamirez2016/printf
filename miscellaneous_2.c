@@ -17,7 +17,6 @@
  * @new_size: is the new size, in bytes of the new memory block
  * Return: pointer to allocated memory
  */
-
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	char *nptr, *temp_ptr;
@@ -49,9 +48,14 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	return ((void *)nptr);
 }
 
+/**
+ * itohex_2bytes - convert int n in an hexadecimal of 2 caracters
+ * @n: number
+ * @dest: buffer of 2 bytes minimum to store number converted
+ * Return: nothing
+ */
 void itohex_2bytes(int n, char *dest)
 {
-	char *nums_ascii = "ABCDEF";
 	int i, digit;
 
 	for (i = 1; i >= 0; i--)
@@ -61,11 +65,16 @@ void itohex_2bytes(int n, char *dest)
 		if (digit < 10)
 			dest[i] = digit + '0';
 		else
-			dest[i] = nums_ascii[digit - 10];
+			dest[i] = digit + 55;
 	}
 }
 
-
+/**
+ * _itobi - convert unsigned integer n to binary.
+ * @n: number to convert
+ * @buff: buffer of 33 bytes minimun to store the converted number
+ * Return: pointer to first byte of number as a string
+ */
 char *_itobi(unsigned int n, char *buff, int size)
 {
 	if (size == 31)
@@ -73,8 +82,8 @@ char *_itobi(unsigned int n, char *buff, int size)
 		buff[size + 1] = 0;
 		if (!n)
 		{
-		    buff[size] = '0';
-		    return (buff + size);
+			buff[size] = '0';
+			return (buff + size);
 		}
 	}
 	if (!n)
