@@ -103,5 +103,5 @@ char *base_convert(char *buff, int size_b, int n, int base, int aditionalCharts)
 	else
 		buff[size_b - 1] = (n % base) + aditionalCharts;
 
-	base_convert(buff, size_b - 1, n / base, base, aditionalCharts);
+	return base_convert(buff, size_b - 1, n / base, base, aditionalCharts);
 }
