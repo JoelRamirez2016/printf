@@ -99,9 +99,9 @@ char *base_convert(char *buff, int size_b, int n, int base, int aditionalCharts)
 		return (buff + size_b);
 
 	if (n % base < 10)
-		buff[size_b - 1]= (n % base) + '0';
+		buff[size_b - 1] = (n % base) + '0';
 	else
-		buff[size_b - 1]= (n % base) + aditionalCharts;
+		buff[size_b - 1] = (n % base) + aditionalCharts;
 
-	base_convert(buff, size_b - 1, n/base, base, aditionalCharts);
+	base_convert(buff, size_b - 1, n / base, base, aditionalCharts);
 }
