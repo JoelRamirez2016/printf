@@ -1,10 +1,21 @@
 #include "holberton.h"
 
+/**
+ * place_s - finds string in args and copy it to buffer, in
+ * case the buffers fill up. buffer is printed and emptied.
+ * @args: argument list
+ * @buff: buffer
+ * @b_cnt: bytes printed counter
+ * Return: return number of new buffers needed to print string
+ */
 int place_s(va_list args, char *buff, int *b_cnt)
 {
 	char *s = va_arg(args, char *);
 	int new_buffs = 0, len, available;
+	char snull[] = "(null)";
 
+	if (s == NULL)
+		s = snull;
 	len = _strlen(s);
 	available = BUFF_SIZE - *b_cnt;
 
@@ -24,6 +35,16 @@ int place_s(va_list args, char *buff, int *b_cnt)
 	return (new_buffs);
 }
 
+/**
+ * place_S - finds string in args and copy it to buffer, in
+ * case the buffers fill up. buffer is printed and emptied.
+ * non-printable characters are copyed as \xXX where XX is their
+ * value in hexadecimal
+ * @args: argument list
+ * @buff: buffer
+ * @b_cnt: bytes printed counter
+ * Return: return number of new buffers needed to print string
+ */
 int place_S(va_list args, char *buff, int *b_cnt)
 {
 	char *s = va_arg(args, char *);
@@ -51,7 +72,14 @@ int place_S(va_list args, char *buff, int *b_cnt)
 }
 
 
-
+/**
+ * place_c - finds char in args and copy it to buffer, in
+ * case the buffers fill up. buffer is printed and emptied.
+ * @args: argument list
+ * @buff: buffer
+ * @b_cnt: bytes printed counter
+ * Return: return number of new buffers needed to print string
+ */
 int place_c(va_list args, char *buff, int *b_cnt)
 {
 	char c = va_arg(args, int);
@@ -71,7 +99,14 @@ int place_c(va_list args, char *buff, int *b_cnt)
 	return (new_buff);
 }
 
-
+/**
+ * place_d - finds int in args and copy it to buffer, in
+ * case the buffers fill up. buffer is printed and emptied.
+ * @args: argument list
+ * @buff: buffer
+ * @b_cnt: bytes printed counter
+ * Return: return number of new buffers needed to print string
+ */
 int place_d(va_list args, char *buff, int *b_cnt)
 {
 	int num = va_arg(args, int);
@@ -99,6 +134,14 @@ int place_d(va_list args, char *buff, int *b_cnt)
 	return (new_buffs);
 }
 
+/**
+ * place_b - finds int in args and copy it to buffer with bynary
+ * format, in case the buffers fill up. buffer is printed and emptied.
+ * @args: argument list
+ * @buff: buffer
+ * @b_cnt: bytes printed counter
+ * Return: return number of new buffers needed to print string
+ */
 int place_b(va_list args, char *buff, int *b_cnt)
 {
 	int num = va_arg(args, int);

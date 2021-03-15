@@ -9,6 +9,14 @@
 #include <limits.h>
 #include <stdlib.h>
 
+
+/**
+ * struct placeholders - struct of differtent placeholders used in
+ * printf
+ *
+ * @c: char found after a '%' character in printf's format
+ * @place_function: The function associated
+ */
 typedef struct placeholders
 {
 	char c;
@@ -17,6 +25,9 @@ typedef struct placeholders
 
 
 int _printf(const char *, ...);
+int trav_format(va_list args, placeholders *ph, const char *format);
+void trav_holders(placeholders *ph, const char **trav, int *used_buff,
+		  va_list args, char *buff, int *b_cnt);
 int place_s(va_list args, char *buff, int *b_cnt);
 int place_c(va_list args, char *buff, int *b_cnt);
 int place_d(va_list args, char *buff, int *b_cnt);
