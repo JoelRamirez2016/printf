@@ -1,6 +1,5 @@
 #include "holberton.h"
 
-
 /**
  * place_s - finds string in args and copy it to buffer, in
  * case the buffers fill up. buffer is printed and emptied.

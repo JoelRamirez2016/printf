@@ -37,7 +37,7 @@ int _printf(const char *format, ...)
  */
 int trav_format(va_list args, placeholders *ph, const char *format)
 {
-	int i = 0, b_cnt = 0, used_buff = 0;
+	int b_cnt = 0, used_buff = 0;
 	char buff[BUFF_SIZE];
 	const char *trav;
 
@@ -55,21 +55,51 @@ int trav_format(va_list args, placeholders *ph, const char *format)
 		}
 		else
 		{
-			for (i = 0; ph[i].c; i++)
-			{
-				if (*(trav + 1) == ph[i].c)
-				{
-					used_buff +=
-						ph[i].place_function
-						(args, buff, &b_cnt);
-					trav++;
-					break;
-				}
-			}
-			if (!ph[i].c)
-				buff[b_cnt++] = '%';
+			trav_holders(ph, &trav, &used_buff,
+				     args, buff, &b_cnt);
 		}
 	}
 	write(1, buff, b_cnt);
 	return (BUFF_SIZE * used_buff + b_cnt);
+}
+
+/**
+ * trav_holders - go trought ph and prints the next argument in args acording
+ * to the next character found in trav.
+ * @ph: struct with the placeholders and the functions to print the
+ * arguments found in args.
+ * @trav: string being readed
+ * @used_buff: buffer used
+ * @args: list of arguments to print
+ * @buff: buffer to copy the argument with the according format
+ * @b_cnt: counter of bytes used in current buffer
+ * Return: nothing
+ */
+void trav_holders(placeholders *ph, const char **trav, int *used_buff,
+		    va_list args, char *buff, int *b_cnt)
+{
+	int i;
+
+	for (i = 0; ph[i].c; i++)
+	{
+		if (*(*trav + 1) == ph[i].c)
+		{
+			used_buff +=
+				ph[i].place_function
+				(args, buff, b_cnt);
+			(*trav)++;
+			break;
+		}
+	}
+	if (*(*trav + 1) == '%' && ph[i].c == 0)
+	{
+		if (*b_cnt == BUFF_SIZE)
+		{
+			write(1, buff, BUFF_SIZE);
+			used_buff++;
+			b_cnt = 0;
+		}
+		buff[(*b_cnt)++] = '%';
+		trav++;
+	}
 }
