@@ -64,3 +64,21 @@ void itohex_2bytes(int n, char *dest)
 			dest[i] = nums_ascii[digit - 10];
 	}
 }
+
+
+char *_itobi(unsigned int n, char *buff, int size)
+{
+	if (size == 31)
+	{
+		buff[size + 1] = 0;
+		if (!n)
+		{
+		    buff[size] = '0';
+		    return (buff + size);
+		}
+	}
+	if (!n)
+		return (buff + size + 1);
+	buff[size] = n % 2 + '0';
+	return (_itobi(n / 2, buff, size - 1));
+}
