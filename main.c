@@ -1,4 +1,4 @@
-#include "seb_holberton.h"
+#include "holberton.h"
 
 int main(void)
 {
@@ -16,9 +16,10 @@ int main(void)
 	printf("len = %d len2 = %d\n", len, len2);
 
 
+	len = _printf("128 binary is: %b\n", 5 );
+	printf("len = %d\n", len);
 
 	/* len = _printf("%s\n", NULL); */
-	/* len2 = printf("%s\n", NULL); */
-	/* printf("len = %d len2 = %d\n", len, len2);*/
+
 	return (0);
 }

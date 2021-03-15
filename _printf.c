@@ -12,6 +12,7 @@ int _printf(const char *format, ...)
 		{'d', place_d},
 		{'i', place_d},
 		{'S', place_S},
+		{'b', place_b},
 		{0, NULL}
 	};
 
@@ -38,7 +39,12 @@ int _printf(const char *format, ...)
 						ph[i].place_function
 						(args, buff, &b_cnt);
 					trav++;
+					break;
 				}
+			}
+			if (!ph[i].c)
+			{
+				buff[b_cnt++] = '%';
 			}
 		}
 	}
