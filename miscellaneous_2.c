@@ -73,6 +73,7 @@ void itohex_2bytes(int n, char *dest)
  * _itobi - convert unsigned integer n to binary.
  * @n: number to convert
  * @buff: buffer of 33 bytes minimun to store the converted number
+ * @size: size of buffer
  * Return: pointer to first byte of number as a string
  */
 char *_itobi(unsigned int n, char *buff, int size)

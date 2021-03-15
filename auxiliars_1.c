@@ -12,7 +12,10 @@ int place_s(va_list args, char *buff, int *b_cnt)
 {
 	char *s = va_arg(args, char *);
 	int new_buffs = 0, len, available;
+	char snull[] = "(null)";
 
+	if (s == NULL)
+		s = snull;
 	len = _strlen(s);
 	available = BUFF_SIZE - *b_cnt;
 
