@@ -95,13 +95,18 @@ char *_itobi(unsigned int n, char *buff, int size)
 
 char *base_convert(char *buff, int size_b, int n, int base, int aditionalCharts)
 {
-	if (!n)
-		return (buff + size_b);
-
 	if (n % base < 10)
 		buff[size_b - 1] = (n % base) + '0';
 	else
 		buff[size_b - 1] = (n % base) + aditionalCharts;
+
+	if (!n)
+	{
+		if (buff[size_b - 1] == '0' && buff[size_b])
+			return (buff + size_b); 
+		else
+			return (buff + size_b - 1);
+	}
 
 	return base_convert(buff, size_b - 1, n / base, base, aditionalCharts);
 }
