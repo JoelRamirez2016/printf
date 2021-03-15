@@ -23,6 +23,8 @@ int _printf(const char *format, ...)
 		{0, NULL}
 	};
 
+	if (format == NULL)
+		return (-1);
 	va_start(args, format);
 	printed_bytes = trav_format(args, ph, format);
 	va_end(args);
@@ -104,6 +106,6 @@ void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 			b_cnt = 0;
 		}
 		buff[(*b_cnt)++] = '%';
-		trav++;
+		(*trav)++;
 	}
 }
