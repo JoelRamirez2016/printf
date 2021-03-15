@@ -24,6 +24,33 @@ int place_s(va_list args, char *buff, int *b_cnt)
 	return (new_buffs);
 }
 
+int place_S(va_list args, char *buff, int *b_cnt)
+{
+	char *s = va_arg(args, char *);
+	int new_buffs = 0, len, available;
+
+	s = convert_non_printable_characters(s);
+	len = _strlen(s);
+	available = BUFF_SIZE - *b_cnt;
+
+	if (available >= len)
+	{
+		_strncpy(buff + *b_cnt, s, len);
+		(*b_cnt) += len;
+	}
+	else
+	{
+		_strncpy(buff + *b_cnt, s, available);
+		write(1, buff, BUFF_SIZE);
+		(*b_cnt) = 0;
+		new_buffs += fillnewbuff(buff, s + available, len - available,
+			    BUFF_SIZE, b_cnt);
+	}
+	return (new_buffs);
+}
+
+
+
 int place_c(va_list args, char *buff, int *b_cnt)
 {
 	char c = va_arg(args, int);

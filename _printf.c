@@ -11,6 +11,7 @@ int _printf(const char *format, ...)
 		{'s', place_s},
 		{'d', place_d},
 		{'i', place_d},
+		{'S', place_S},
 		{0, NULL}
 	};
 
@@ -45,4 +46,3 @@ int _printf(const char *format, ...)
 	va_end(args);
 	return (BUFF_SIZE * used_buff + b_cnt);
 }
-
