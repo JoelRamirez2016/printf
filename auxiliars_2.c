@@ -168,7 +168,7 @@ int place_p(va_list args, char *buff, int *b_cnt,
 {
 	char *s;
 	void *ptr = va_arg(args, void*);
-	int new_buffs = 0, len, available;
+	int new_buffs = 0, len;
 	char snull[] = "(nil)";
 	char buffer[20];
 
