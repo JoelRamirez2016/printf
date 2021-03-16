@@ -49,6 +49,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void itohex_2bytes(int n, char *dest);
 char *_itobi(unsigned int n, char *buff, int size);
 
-char *base_convert(char*, int, int, int, int);
+char *base_convert(char*, int, unsigned int, int, int);
 
 #endif
