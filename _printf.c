@@ -20,6 +20,7 @@ int _printf(const char *format, ...)
 		{'o', place_o},
 		{'x', place_x},
 		{'X', place_X},
+		{'p', place_p},
 		{0, NULL}
 	};
 

@@ -37,6 +37,8 @@ int place_x(va_list args, char *buff, int *b_cnt);
 int place_X(va_list args, char *buff, int *b_cnt);
 int place_o(va_list args, char *buff, int *b_cnt);
 int place_u(va_list args, char *buff, int *b_cnt);
+int place_p(va_list args, char *buff, int *b_cnt);
+
 /* miscellaneous functions */
 
 int _strlen(char *);
@@ -48,7 +50,7 @@ char *conv_non_printable(char *s);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 void itohex_2bytes(int n, char *dest);
 char *_itobi(unsigned int n, char *buff, int size);
-
 char *base_convert(char*, int, unsigned int, int, int);
+char *getAddress_p(void*, char*, int);
 
 #endif
