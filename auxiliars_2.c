@@ -8,8 +8,8 @@
  * @b_cnt: bytes printed counter
  * Return: return number of new buffers needed to print string
  */
-
-int place_x(va_list args, char *buff, int *b_cnt)
+int place_x(va_list args, char *buff, int *b_cnt,
+	    __attribute__ ((unused)) flag * flags)
 {
 	int num = va_arg(args, int);
 	int new_buffs = 0, len, available;
@@ -47,7 +47,8 @@ int place_x(va_list args, char *buff, int *b_cnt)
  * Return: return number of new buffers needed to print string
  */
 
-int place_X(va_list args, char *buff, int *b_cnt)
+int place_X(va_list args, char *buff, int *b_cnt,
+	    __attribute__ ((unused)) flag * flags)
 {
 	int num = va_arg(args, int);
 	int new_buffs = 0, len, available;
@@ -85,7 +86,8 @@ int place_X(va_list args, char *buff, int *b_cnt)
  * Return: return number of new buffers needed to print string
  */
 
-int place_o(va_list args, char *buff, int *b_cnt)
+int place_o(va_list args, char *buff, int *b_cnt,
+	    __attribute__ ((unused)) flag * flags)
 {
 	int num = va_arg(args, int);
 	int new_buffs = 0, len, available;
@@ -124,7 +126,8 @@ int place_o(va_list args, char *buff, int *b_cnt)
  * Return: return number of new buffers needed to print string
  */
 
-int place_u(va_list args, char *buff, int *b_cnt)
+int place_u(va_list args, char *buff, int *b_cnt,
+	    __attribute__ ((unused)) flag * flags)
 {
 
 	int num = va_arg(args, int);

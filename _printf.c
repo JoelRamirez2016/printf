@@ -84,7 +84,8 @@ int trav_format(va_list args, placeholders *ph, const char *format)
 void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 		    va_list args, char *buff, int *b_cnt)
 {
-	int i, plussign = 0;
+	int i;
+	flag flags[] = {{'+', 0}, {' ', 0}, {'#', 0}, {0, 0}};
 
 	if (*(*trav + 1) == '%')
 	{
@@ -98,9 +99,14 @@ void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 		(*trav)++;
 		return;
 	}
-	if (*(*trav + 1) == '+')
+	for (i = 0; flags[i].c; i++)
 	{
-		plussign = 1;
+		if (*(*trav + 1) == flags[i].c)
+		{
+			flags[i].value = 1;
+			(*trav)++;
+			i = -1;
+		}
 	}
 	for (i = 0; ph[i].c; i++)
 	{
@@ -108,7 +114,7 @@ void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 		{
 			*used_buff +=
 				ph[i].place_function
-				(args, buff, b_cnt);
+				(args, buff, b_cnt, flags);
 			(*trav)++;
 			return;
 		}
