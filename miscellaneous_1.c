@@ -120,5 +120,6 @@ char *conv_non_printable(char *s)
 		}
 	}
 	s_converted[s_cnt] = 0;
+	/* _printf("s_cnt = %d\n", s_cnt); */
 	return (s_converted);
 }

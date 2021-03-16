@@ -42,10 +42,12 @@ int main(void)
 	/* len = _printf("%s\n", largo); */
 	/* printf("len = %d | len2 = %i\n", len, len2); */
 
+	int fin = 3;
 
-	for (i = 0; i <= 40; i++)
+	for (i = 0; i < fin; i++)
 		s1[i] = '\n';
-	s1[41] = 0;
+//	s1[fin] = '\t';
+	s1[fin] = 0;
 //	len = _printf("%s\n", s1);
 //	len2 = _printf("%s\n", s1);
 	len2 = _printf("%S\n", s1);
