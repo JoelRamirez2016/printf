@@ -120,5 +120,6 @@ void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 			return;
 		}
 	}
-
+	*used_buff += putInBuffer(buff, b_cnt, "%", 1);
+	checkFlags(buff, b_cnt, flags, used_buff);
 }

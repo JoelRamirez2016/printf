@@ -30,3 +30,26 @@ int putInBuffer(char *buff, int *b_cnt, char *s, int len)
 	}
 	return (new_buffs);
 }
+
+
+/**
+ * checkFlags - d
+ * @buff: buffer
+ * @b_cnt: bytes used in current buffer
+ * Return: nothing
+ */
+void checkFlags(char *buff, int *b_cnt, flag *flags, int *new_buffs)
+{
+	int i;
+
+	for (i = 0; flags[i].c; i++)
+	{
+		if (flags[i].value)
+		{
+			*new_buffs += putInBuffer(buff, b_cnt,
+						 &(flags[i].c), 1);
+			break;
+		}
+	}
+
+}

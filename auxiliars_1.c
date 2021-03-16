@@ -92,15 +92,8 @@ int place_d(va_list args, char *buff, int *b_cnt,
 	else
 		num_s = _itoa('+', num, num_holder);
 
-	for (i = 0; flags[i].c; i++)
-	{
-		if (flags[i].value)
-		{
-			new_buffs += putInBuffer(buff, b_cnt,
-						 &(flags[i].c), 1);
-			break;
-		}
-	}
+	checkFlags(buff, b_cnt, flags, &new_buffs);
+
 	len = _strlen(num_s);
 	new_buffs += putInBuffer(buff, b_cnt, num_s, len);
 	return (new_buffs);

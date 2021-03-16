@@ -69,5 +69,6 @@ char *_itobi(unsigned int n, char *buff, int size);
 char *base_convert(char*, int, unsigned int, int, int);
 char *getAddress_p(void*, char*, int);
 int putInBuffer(char *buff, int *b_cnt, char *s, int len);
+void checkFlags(char *buff, int *b_cnt, flag *flags, int *new_buffs);
 
 #endif
