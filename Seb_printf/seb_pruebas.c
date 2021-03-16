@@ -28,32 +28,42 @@ int main(void)
 	char *format = "A%s%s%%%c%s%s%s\n";
 	char largo[4000];
 
-	for (i = 0; i < 3500; i++)
-	{
+	for (i = 0; i < 3; i++)
 		largo[i] = 'r';
-	}
 	largo[i] = 0;
 
-	/* len2 = printf("naoA%s%s%%%c%s%s\n", s1, s2, '\t', "D", NULL); */
-	/* len = _printf("mioA%s%s%%%c%s%s\n", s1, s2, '\t', "D", NULL); */
-	/* printf("len = %d | len2 = %i\n", len, len2); */
+	len2 = printf("naoA%s%s%%%c%s%s\n", s1, s2, '\t', "D", NULL);
+	len = _printf("mioA%s%s%%%c%s%s\n", s1, s2, '\t', "D", NULL);
+	printf("len = %d | len2 = %i\n", len, len2);
 
-	/* len2 = printf("%s\n", largo); */
-	/* len = _printf("%s\n", largo); */
-	/* printf("len = %d | len2 = %i\n", len, len2); */
 
-	int fin = 3;
+	len2 = printf("%%%%%%%%\n");
+	len = _printf("%%%%%%%%\n");
+	printf("len = %d | len2 = %i\n", len, len2);
+
+	len2 = printf("%s\n", largo);
+	len = _printf("%s\n", largo);
+	printf("len = %d | len2 = %i\n", len, len2);
+
+	int fin = 2;
 
 	for (i = 0; i < fin; i++)
 		s1[i] = '\n';
-//	s1[fin] = '\t';
+	s1[fin] = '\t';
 	s1[fin] = 0;
-//	len = _printf("%s\n", s1);
-//	len2 = _printf("%s\n", s1);
+	len = _printf("%s\n", s1);
 	len2 = _printf("%S\n", s1);
 	printf("len = %d | len2 = %i\n", len, len2);
 
-	spf(s1, 10);
-
+	len2 = printf("%+s\n", "hola");
+	/* len2 = printf("%++i\n", 5); */
+	/* len2 = printf("% d\n", 5); */
+	/* len2 = printf("% i\n", 5); */
+	/* len2 = printf("%+ d\n", 5); */
+	/* len2 = printf("% +d\n", 5); */
+	/* len2 = printf("%++d\n", 5); */
+	/* len2 = printf("%  d\n", 5); */
+	/* len2 = printf("%#d\n", 5); */
+	printf("len = %d | len2 = %i\n", len, len2);
 	return (0);
 }
