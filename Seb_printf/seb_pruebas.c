@@ -30,12 +30,12 @@ int main(void)
 	char largo[4000];
 	int fin = 2;
 
-	len2 = printf("%%% y\n");
-	len = _printf("%%% y\n");
-	printf("len = %d | len2 = %i\n", len, len2);
+	/* len2 = printf("%%% y\n"); */
+	/* len = _printf("%%% y\n"); */
+	/* printf("len = %d | len2 = %i\n", len, len2); */
 
-	len2 = printf("%%% +s\n", " hola");
-	len = _printf("%%% +s\n", " hola");
+	/* len2 = printf("%%% +s\n", " hola"); */
+	/* len = _printf("%%% +s\n", " hola"); */
 	printf("len = %d | len2 = %i\n", len, len2);
 
 #if 0

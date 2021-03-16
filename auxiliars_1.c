@@ -83,7 +83,7 @@ int place_c(va_list args, char *buff, int *b_cnt,
 int place_d(va_list args, char *buff, int *b_cnt,
 	    __attribute__ ((unused)) flag * flags)
 {
-	int num = va_arg(args, int), i;
+	int num = va_arg(args, int);
 	int new_buffs = 0, len;
 	char num_holder[12], *num_s;
 
