@@ -112,6 +112,7 @@ char *base_convert(char *buff, int size_b,
 	return (base_convert(buff, size_b - 1, n / base, base, aditionalCharts));
 }
 
+
 char *getAddress_p(void *p, char *buf, int size_b)
 {
 	unsigned long int x = (unsigned long int) p;
@@ -132,4 +133,36 @@ char *getAddress_p(void *p, char *buf, int size_b)
 	}
 	buf[j + 2] = 0;
 	return buf;
+}
+
+
+/**
+ * putInBuffer - copy s into buff, in case buff is filled, it is printed
+ * and started to being filled from zero
+ * @buff: buffer
+ * @b_cnt: bytes used in current buffer
+ * @s: string to copy
+ * @len: lenght in bytes of s
+ * Return: pointer to first byte of number as a string
+ */
+int putInBuffer(char *buff, int *b_cnt, char *s, int len)
+{
+	int available, new_buffs = 0;
+
+	available = BUFF_SIZE - *b_cnt;
+
+	if (available >= len)
+	{
+		_strncpy(buff + *b_cnt, s, len);
+		(*b_cnt) += len;
+	}
+	else
+	{
+		_strncpy(buff + *b_cnt, s, available);
+		write(1, buff, BUFF_SIZE);
+		(*b_cnt) = 0;
+		new_buffs += fillnewbuff(buff, s + available, len - available,
+			    BUFF_SIZE, b_cnt);
+	}
+	return (new_buffs);
 }

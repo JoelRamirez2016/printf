@@ -6,10 +6,11 @@
  * @args: argument list
  * @buff: buffer
  * @b_cnt: bytes printed counter
+ * @flags: structure with flags activated to have into account
  * Return: return number of new buffers needed to print string
  */
-
-int place_x(va_list args, char *buff, int *b_cnt)
+int place_x(va_list args, char *buff, int *b_cnt,
+	    __attribute__ ((unused)) flag * flags)
 {
 	int num = va_arg(args, int);
 	int new_buffs = 0, len, available;
@@ -44,10 +45,12 @@ int place_x(va_list args, char *buff, int *b_cnt)
  * @args: argument list
  * @buff: buffer
  * @b_cnt: bytes printed counter
+ * @flags: structure with flags activated to have into account
  * Return: return number of new buffers needed to print string
  */
 
-int place_X(va_list args, char *buff, int *b_cnt)
+int place_X(va_list args, char *buff, int *b_cnt,
+	    __attribute__ ((unused)) flag * flags)
 {
 	int num = va_arg(args, int);
 	int new_buffs = 0, len, available;
@@ -82,10 +85,12 @@ int place_X(va_list args, char *buff, int *b_cnt)
  * @args: argument list
  * @buff: buffer
  * @b_cnt: bytes printed counter
+ * @flags: structure with flags activated to have into account
  * Return: return number of new buffers needed to print string
  */
 
-int place_o(va_list args, char *buff, int *b_cnt)
+int place_o(va_list args, char *buff, int *b_cnt,
+	    __attribute__ ((unused)) flag * flags)
 {
 	int num = va_arg(args, int);
 	int new_buffs = 0, len, available;
@@ -121,10 +126,11 @@ int place_o(va_list args, char *buff, int *b_cnt)
  * @args: argument list
  * @buff: buffer
  * @b_cnt: bytes printed counter
+ * @flags: structure with flags activated to have into account
  * Return: return number of new buffers needed to print string
  */
-
-int place_u(va_list args, char *buff, int *b_cnt)
+int place_u(va_list args, char *buff, int *b_cnt,
+	    __attribute__ ((unused)) flag * flags)
 {
 
 	int num = va_arg(args, int);
@@ -157,34 +163,35 @@ int place_u(va_list args, char *buff, int *b_cnt)
 	return (new_buffs);
 }
 
-int place_p(va_list args, char *buff, int *b_cnt)
+int place_p(va_list args, char *buff, int *b_cnt,
+	    __attribute__ ((unused)) flag * flags)
 {
 	char *s;
-        void *ptr = va_arg(args, void*);
-        int new_buffs = 0, len, available;
-        char snull[] = "(nil)";
+	void *ptr = va_arg(args, void*);
+	int new_buffs = 0, len, available;
+	char snull[] = "(nil)";
 	char buffer[20];
 
-        if (!ptr)
-                s = snull;
+	if (!ptr)
+		s = snull;
 	else
 		s = getAddress_p(ptr, buffer, 20);
 
-        len = _strlen(s);
-        available = BUFF_SIZE - *b_cnt;
+	len = _strlen(s);
+	available = BUFF_SIZE - *b_cnt;
 
-        if (available >= len)
-        {
-                _strncpy(buff + *b_cnt, s, len);
-                (*b_cnt) += len;
-        }
-        else
-        {
-                _strncpy(buff + *b_cnt, s, available);
-                write(1, buff, BUFF_SIZE);
-                (*b_cnt) = 0;
-                new_buffs += fillnewbuff(buff, s + available, len - available,
-                            BUFF_SIZE, b_cnt);
-        }
-        return (new_buffs);
+	if (available >= len)
+	{
+		_strncpy(buff + *b_cnt, s, len);
+		(*b_cnt) += len;
+	}
+	else
+	{
+		_strncpy(buff + *b_cnt, s, available);
+		write(1, buff, BUFF_SIZE);
+		(*b_cnt) = 0;
+		new_buffs += fillnewbuff(buff, s + available, len - available,
+					 BUFF_SIZE, b_cnt);
+	}
+	return (new_buffs);
 }

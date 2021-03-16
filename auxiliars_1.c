@@ -6,32 +6,22 @@
  * @args: argument list
  * @buff: buffer
  * @b_cnt: bytes printed counter
+ * @flags: structure with flags activated to have into account
  * Return: return number of new buffers needed to print string
  */
-int place_s(va_list args, char *buff, int *b_cnt)
+int place_s(va_list args, char *buff, int *b_cnt,
+	    __attribute__ ((unused)) flag * flags)
 {
 	char *s = va_arg(args, char *);
-	int new_buffs = 0, len, available;
+	int new_buffs = 0, len;
 	char snull[] = "(null)";
 
 	if (s == NULL)
 		s = snull;
 	len = _strlen(s);
-	available = BUFF_SIZE - *b_cnt;
 
-	if (available >= len)
-	{
-		_strncpy(buff + *b_cnt, s, len);
-		(*b_cnt) += len;
-	}
-	else
-	{
-		_strncpy(buff + *b_cnt, s, available);
-		write(1, buff, BUFF_SIZE);
-		(*b_cnt) = 0;
-		new_buffs += fillnewbuff(buff, s + available, len - available,
-			    BUFF_SIZE, b_cnt);
-	}
+	new_buffs += putInBuffer(buff, b_cnt, s, len);
+
 	return (new_buffs);
 }
 
@@ -43,30 +33,20 @@ int place_s(va_list args, char *buff, int *b_cnt)
  * @args: argument list
  * @buff: buffer
  * @b_cnt: bytes printed counter
+ * @flags: structure with flags activated to have into account
  * Return: return number of new buffers needed to print string
  */
-int place_S(va_list args, char *buff, int *b_cnt)
+int place_S(va_list args, char *buff, int *b_cnt,
+	    __attribute__ ((unused)) flag * flags)
 {
 	char *s = va_arg(args, char *);
-	int new_buffs = 0, len, available;
+	int new_buffs = 0, len;
 
 	s = conv_non_printable(s);
 	len = _strlen(s);
-	available = BUFF_SIZE - *b_cnt;
 
-	if (available >= len)
-	{
-		_strncpy(buff + *b_cnt, s, len);
-		(*b_cnt) += len;
-	}
-	else
-	{
-		_strncpy(buff + *b_cnt, s, available);
-		write(1, buff, BUFF_SIZE);
-		(*b_cnt) = 0;
-		new_buffs += fillnewbuff(buff, s + available, len - available,
-			    BUFF_SIZE, b_cnt);
-	}
+	new_buffs += putInBuffer(buff, b_cnt, s, len);
+
 	free(s);
 	return (new_buffs);
 }
@@ -78,24 +58,16 @@ int place_S(va_list args, char *buff, int *b_cnt)
  * @args: argument list
  * @buff: buffer
  * @b_cnt: bytes printed counter
+ * @flags: structure with flags activated to have into account
  * Return: return number of new buffers needed to print string
  */
-int place_c(va_list args, char *buff, int *b_cnt)
+int place_c(va_list args, char *buff, int *b_cnt,
+	    __attribute__ ((unused)) flag * flags)
 {
 	char c = va_arg(args, int);
-	int new_buff = 0, available;
+	int new_buff = 0;
 
-	available = BUFF_SIZE - *b_cnt;
-
-	if (available >= 1)
-		buff[(*b_cnt)++] = c;
-	else
-	{
-		write(1, buff, BUFF_SIZE);
-		new_buff = 1;
-		buff[0] = c;
-		(*b_cnt) = 1;
-	}
+	new_buff += putInBuffer(buff, b_cnt, &c, 1);
 	return (new_buff);
 }
 
@@ -105,12 +77,14 @@ int place_c(va_list args, char *buff, int *b_cnt)
  * @args: argument list
  * @buff: buffer
  * @b_cnt: bytes printed counter
+ * @flags: structure with flags activated to have into account
  * Return: return number of new buffers needed to print string
  */
-int place_d(va_list args, char *buff, int *b_cnt)
+int place_d(va_list args, char *buff, int *b_cnt,
+	    __attribute__ ((unused)) flag * flags)
 {
-	int num = va_arg(args, int);
-	int new_buffs = 0, len, available;
+	int num = va_arg(args, int), i;
+	int new_buffs = 0, len;
 	char num_holder[12], *num_s;
 
 	if (num < 0)
@@ -118,23 +92,17 @@ int place_d(va_list args, char *buff, int *b_cnt)
 	else
 		num_s = _itoa('+', num, num_holder);
 
+	for (i = 0; flags[i].c; i++)
+	{
+		if (flags[i].value)
+		{
+			new_buffs += putInBuffer(buff, b_cnt,
+						 &(flags[i].c), 1);
+			break;
+		}
+	}
 	len = _strlen(num_s);
-	available = BUFF_SIZE - *b_cnt;
-
-	if (available >= len)
-	{
-		_strncpy(buff + *b_cnt, num_s, len);
-		(*b_cnt) += len;
-	}
-	else
-	{
-		_strncpy(buff + *b_cnt, num_s, available);
-		write(1, buff, BUFF_SIZE);
-		(*b_cnt) = 0;
-		new_buffs += fillnewbuff(buff, num_s + available, len - available,
-			    BUFF_SIZE, b_cnt);
-
-	}
+	new_buffs += putInBuffer(buff, b_cnt, num_s, len);
 	return (new_buffs);
 }
 
@@ -144,30 +112,18 @@ int place_d(va_list args, char *buff, int *b_cnt)
  * @args: argument list
  * @buff: buffer
  * @b_cnt: bytes printed counter
+ * @flags: structure with flags activated to have into account
  * Return: return number of new buffers needed to print string
  */
-int place_b(va_list args, char *buff, int *b_cnt)
+int place_b(va_list args, char *buff, int *b_cnt,
+	    __attribute__ ((unused)) flag * flags)
 {
 	int num = va_arg(args, int);
-	int new_buffs = 0, len, available;
+	int new_buffs = 0, len;
 	char num_holder[33], *num_s;
 
 	num_s = _itobi(num, num_holder, 31);
 	len = _strlen(num_s);
-	available = BUFF_SIZE - *b_cnt;
-	if (available >= len)
-	{
-		_strncpy(buff + *b_cnt, num_s, len);
-		(*b_cnt) += len;
-	}
-	else
-	{
-		_strncpy(buff + *b_cnt, num_s, available);
-		write(1, buff, BUFF_SIZE);
-		(*b_cnt) = 0;
-		new_buffs += fillnewbuff(buff, num_s + available,
-					 len - available,
-					 BUFF_SIZE, b_cnt);
-	}
+	new_buffs += putInBuffer(buff, b_cnt, num_s, len);
 	return (new_buffs);
 }
