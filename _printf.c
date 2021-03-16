@@ -67,6 +67,10 @@ int trav_format(va_list args, placeholders *ph, const char *format)
 		}
 	}
 	write(1, buff, b_cnt);
+	if (used_buff == -1)
+	{
+		return (-1);
+	}
 	return (BUFF_SIZE * used_buff + b_cnt);
 }
 
@@ -119,6 +123,11 @@ void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 			(*trav)++;
 			return;
 		}
+	}
+	if (*(*trav + 1) == 0)
+	{
+		*used_buff = -1;
+		return;
 	}
 	*used_buff += putInBuffer(buff, b_cnt, "%", 1);
 	checkFlags(buff, b_cnt, flags, used_buff);
