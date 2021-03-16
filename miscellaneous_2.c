@@ -93,7 +93,8 @@ char *_itobi(unsigned int n, char *buff, int size)
 	return (_itobi(n / 2, buff, size - 1));
 }
 
-char *base_convert(char *buff, int size_b, unsigned int n, int base, int aditionalCharts)
+char *base_convert(char *buff, int size_b,
+		   unsigned int n, int base, int aditionalCharts)
 {
 	if (n % base < 10)
 		buff[size_b - 1] = (n % base) + '0';
@@ -103,10 +104,10 @@ char *base_convert(char *buff, int size_b, unsigned int n, int base, int adition
 	if (!n)
 	{
 		if (buff[size_b - 1] == '0' && buff[size_b])
-			return (buff + size_b); 
+			return (buff + size_b);
 		else
 			return (buff + size_b - 1);
 	}
 
-	return base_convert(buff, size_b - 1, n / base, base, aditionalCharts);
+	return (base_convert(buff, size_b - 1, n / base, base, aditionalCharts));
 }
