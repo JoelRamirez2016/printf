@@ -156,3 +156,34 @@ int place_u(va_list args, char *buff, int *b_cnt)
 	}
 	return (new_buffs);
 }
+
+int place_p(va_list args, char *buff, int *b_cnt)
+{
+        void *s = va_arg(args, void*);
+        int new_buffs = 0, len, available;
+        char snull[] = "(nil)";
+	char buffer[20];
+
+        if (!s)
+                s = snull;
+	else
+		s = getAddress_p(s, buffer, 20);
+
+        len = _strlen(s);
+        available = BUFF_SIZE - *b_cnt;
+
+        if (available >= len)
+        {
+                _strncpy(buff + *b_cnt, s, len);
+                (*b_cnt) += len;
+        }
+        else
+        {
+                _strncpy(buff + *b_cnt, s, available);
+                write(1, buff, BUFF_SIZE);
+                (*b_cnt) = 0;
+                new_buffs += fillnewbuff(buff, s + available, len - available,
+                            BUFF_SIZE, b_cnt);
+        }
+        return (new_buffs);
+}

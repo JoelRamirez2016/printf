@@ -111,3 +111,24 @@ char *base_convert(char *buff, int size_b,
 
 	return (base_convert(buff, size_b - 1, n / base, base, aditionalCharts));
 }
+
+char *getAddress_p(void *p, char *buf, int size_b)
+{
+	unsigned long int x = (unsigned long int) p;
+	char e;
+	size_t i, j;
+
+	buf[0] = '0';
+	buf[1] = 'x';
+	for (i = 0, j = 0; i < sizeof(x) * 2 && j + 2 < size_b; i++)
+	{
+		e = "0123456789abcdef"[(x >> ( (sizeof(x) * 2 - 1 - i) * 4)) & 0xf];
+		if (e != '0' || buf[j + 1] != 'x')
+		{
+			buf[j + 2] = e;
+			j++;
+		}
+	}
+	buf[j + 2] = 0;
+	return buf;
+}
