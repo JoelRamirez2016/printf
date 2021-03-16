@@ -159,15 +159,16 @@ int place_u(va_list args, char *buff, int *b_cnt)
 
 int place_p(va_list args, char *buff, int *b_cnt)
 {
-        void *s = va_arg(args, void*);
+	char *s;
+        void *ptr = va_arg(args, void*);
         int new_buffs = 0, len, available;
         char snull[] = "(nil)";
 	char buffer[20];
 
-        if (!s)
+        if (!ptr)
                 s = snull;
 	else
-		s = getAddress_p(s, buffer, 20);
+		s = getAddress_p(ptr, buffer, 20);
 
         len = _strlen(s);
         available = BUFF_SIZE - *b_cnt;

@@ -116,7 +116,8 @@ char *getAddress_p(void *p, char *buf, int size_b)
 {
 	unsigned long int x = (unsigned long int) p;
 	char e;
-	size_t i, j;
+	unsigned int i;
+	int j;
 
 	buf[0] = '0';
 	buf[1] = 'x';
