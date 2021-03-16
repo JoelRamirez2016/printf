@@ -30,7 +30,11 @@ int main(void)
 	char largo[4000];
 	int fin = 2;
 
-	len2 = printf("aaa%");
+	len = _printf("%S\n", "Hola\tComo estas");
+	len2 = _printf("%S\n", NULL);
+	printf("len = %d | len2 = %i\n", len, len2);
+#if 0
+	len2 = printf("aaa% s", "hola");
 	len = _printf("bbb%");
 	printf("len = %d | len2 = %i\n", len, len2);
 
@@ -42,7 +46,7 @@ int main(void)
 	len = _printf("%%% +s\n", " hola");
 	printf("len = %d | len2 = %i\n", len, len2);
 
-#if 0
+
 	for (i = 0; i < 3; i++)
 		largo[i] = 'r';
 	largo[i] = 0;
