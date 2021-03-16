@@ -91,7 +91,7 @@ void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 	{
 		if (*(*trav + 1) == ph[i].c)
 		{
-			used_buff +=
+			*used_buff +=
 				ph[i].place_function
 				(args, buff, b_cnt);
 			(*trav)++;
