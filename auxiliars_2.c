@@ -89,11 +89,11 @@ int place_o(va_list args, char *buff, int *b_cnt)
 {
 	int num = va_arg(args, int);
 	int new_buffs = 0, len, available;
-	char num_holder[10], *num_s;
+	char num_holder[13], *num_s;
 
-	num_holder[10] = 0;
+	num_holder[13] = 0;
 
-	num_s = base_convert(num_holder, 10, num, 8, 0);
+	num_s = base_convert(num_holder, 13, num, 8, 0);
 	len = _strlen(num_s);
 	available = BUFF_SIZE - *b_cnt;
 
