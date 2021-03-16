@@ -41,7 +41,7 @@ int place_S(va_list args, char *buff, int *b_cnt,
 {
 	char *s = va_arg(args, char *);
 	int new_buffs = 0, len;
-	char snull[] = "(null)";
+	char snull[] = "\\x00";
 
 	if (s == NULL)
 		s = snull;
