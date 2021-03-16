@@ -57,8 +57,8 @@ int main(void)
 	/* len2 = _printf("%S\n", s1); */
 	/* printf("len = %d | len2 = %i\n", len, len2); */
 	#endif
-	len2 = printf("%+  ++ ++d\n", 35);
-	len = _printf("%+  ++ ++d\n", 35);
+	len2 = printf("%#d\n", 35);
+	len = _printf("%#d\n", 35);
 	/* len2 = printf("%++i\n", 5); */
 	/* len2 = printf("% d\n", 5); */
 	/* len2 = printf("% i\n", 5); */

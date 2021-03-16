@@ -178,20 +178,8 @@ int place_p(va_list args, char *buff, int *b_cnt,
 		s = getAddress_p(ptr, buffer, 20);
 
 	len = _strlen(s);
-	available = BUFF_SIZE - *b_cnt;
 
-	if (available >= len)
-	{
-		_strncpy(buff + *b_cnt, s, len);
-		(*b_cnt) += len;
-	}
-	else
-	{
-		_strncpy(buff + *b_cnt, s, available);
-		write(1, buff, BUFF_SIZE);
-		(*b_cnt) = 0;
-		new_buffs += fillnewbuff(buff, s + available, len - available,
-					 BUFF_SIZE, b_cnt);
-	}
+	new_buffs = putInBuffer(buff, b_cnt, s, len);
+
 	return (new_buffs);
 }
