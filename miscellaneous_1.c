@@ -119,5 +119,6 @@ char *conv_non_printable(char *s)
 			s_cnt += 2;
 		}
 	}
+	s_converted[s_cnt] = 0;
 	return (s_converted);
 }
