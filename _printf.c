@@ -105,16 +105,13 @@ void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 		return;
 	}
 	for (i = 0; flags[i].c; i++)
-	{
 		if (*(*trav + 1) == flags[i].c)
 		{
 			flags[i].value = 1;
 			(*trav)++;
 			i = -1;
 		}
-	}
 	for (i = 0; ph[i].c; i++)
-	{
 		if (*(*trav + 1) == ph[i].c)
 		{
 			*used_buff +=
@@ -123,7 +120,6 @@ void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 			(*trav)++;
 			return;
 		}
-	}
 	if (*(*trav + 1) == 0)
 	{
 		*used_buff = -1;
