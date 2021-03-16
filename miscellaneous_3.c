@@ -36,6 +36,8 @@ int putInBuffer(char *buff, int *b_cnt, char *s, int len)
  * checkFlags - d
  * @buff: buffer
  * @b_cnt: bytes used in current buffer
+ * @flags: array of structs with activated flags
+ * @new_buffs: buffers quantity to use
  * Return: nothing
  */
 void checkFlags(char *buff, int *b_cnt, flag *flags, int *new_buffs)
