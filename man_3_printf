@@ -1,0 +1,57 @@
+.SH NAME
+
+	_printf - write in stdout formated string
+
+.SH SYNOPSIS
+
+	_printf [string] {[arguments]}
+
+.SH DESCRIPTION
+
+	the _printf funtion write in the standart output a user string formated that specifies how subsequent arguments
+	
+	FORMAT:
+
+	%c	print argument char
+
+	%s	print argument char*
+
+	%%	print %
+
+	%i	print argument int
+
+	%d	print argument double
+
+	%b	print argument binary 
+
+	%u	print argument unsigned int
+
+	%o	print argument octal
+
+	%x	print argument hexadecimal
+
+	%X	print argument HEXADECIMAL
+
+	%S	print argument char* in hexadecimal ASCI values < 32 and >= 127
+
+	%p	print argument memory address in hexadecimal
+
+	HANDLES:
+
+	%+[ARGUMENT]
+
+	% [ARGUMENT]
+
+	%#[ARGUMENT]	
+
+.SH SEE ALSO
+
+	printf(), write
+
+.SH BUGS
+
+	No bugs reported
+	report a bug in 2993@holbertonschool.com
+
+.SH AUTHOR
+	Joel Alexander Ramirez - Sebastian Caicedo
