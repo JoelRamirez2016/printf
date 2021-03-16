@@ -30,8 +30,8 @@ int main(void)
 	char largo[4000];
 	int fin = 2;
 
-	len = _printf("%S\n", "Hola\tComo estas");
-	len2 = _printf("%Sraro\n", NULL);
+	len2 = printf("%   +s%  i -|%#x\n", "texto", 21, 31);
+	len = _printf("%   +s%  i -|%#x\n", "texto", 21, 31);
 	printf("len = %d | len2 = %i\n", len, len2);
 #if 0
 	len2 = printf("aaa% s", "hola");
