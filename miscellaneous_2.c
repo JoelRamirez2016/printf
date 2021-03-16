@@ -113,6 +113,16 @@ char *base_convert(char *buff, int size_b,
 }
 
 
+
+/**
+ * putInBuffer - copy s into buff, in case buff is filled, it is printed
+ * and started to being filled from zero
+ * @buff: buffer
+ * @b_cnt: bytes used in current buffer
+ * @s: string to copy
+ * @len: lenght in bytes of s
+ * Return: pointer to first byte of number as a string
+ */
 int putInBuffer(char *buff, int *b_cnt, char *s, int len)
 {
 	int available, new_buffs = 0;

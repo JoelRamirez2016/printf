@@ -6,6 +6,7 @@
  * @args: argument list
  * @buff: buffer
  * @b_cnt: bytes printed counter
+ * @flags: structure with flags activated to have into account
  * Return: return number of new buffers needed to print string
  */
 int place_x(va_list args, char *buff, int *b_cnt,
@@ -44,6 +45,7 @@ int place_x(va_list args, char *buff, int *b_cnt,
  * @args: argument list
  * @buff: buffer
  * @b_cnt: bytes printed counter
+ * @flags: structure with flags activated to have into account
  * Return: return number of new buffers needed to print string
  */
 
@@ -83,6 +85,7 @@ int place_X(va_list args, char *buff, int *b_cnt,
  * @args: argument list
  * @buff: buffer
  * @b_cnt: bytes printed counter
+ * @flags: structure with flags activated to have into account
  * Return: return number of new buffers needed to print string
  */
 
@@ -123,6 +126,7 @@ int place_o(va_list args, char *buff, int *b_cnt,
  * @args: argument list
  * @buff: buffer
  * @b_cnt: bytes printed counter
+ * @flags: structure with flags activated to have into account
  * Return: return number of new buffers needed to print string
  */
 
