@@ -93,13 +93,24 @@ char *_itobi(unsigned int n, char *buff, int size)
 	return (_itobi(n / 2, buff, size - 1));
 }
 
+
+/**
+ * base_convert - convert base 10 n in another base
+ * @buff: buffer to save the new number
+ * @size_b: size of buff
+ * @n: number to change the base
+ * @base: new base of n
+ * @aditionalChars: aditional chars when the n/base >= 10
+ * Return: buffer with the new number
+*/
+
 char *base_convert(char *buff, int size_b,
-		   unsigned int n, int base, int aditionalCharts)
+		   unsigned int n, int base, int aditionalChars)
 {
 	if (n % base < 10)
 		buff[size_b - 1] = (n % base) + '0';
 	else
-		buff[size_b - 1] = (n % base) + aditionalCharts;
+		buff[size_b - 1] = (n % base) + aditionalChars;
 
 	if (!n)
 	{
@@ -109,9 +120,16 @@ char *base_convert(char *buff, int size_b,
 			return (buff + size_b - 1);
 	}
 
-	return (base_convert(buff, size_b - 1, n / base, base, aditionalCharts));
+	return (base_convert(buff, size_b - 1, n / base, base, aditionalChars));
 }
 
+/**
+ * getAddress_p - save address memory of p in a buffer
+ * @p: pointer with the address memory to save
+ * @buf: buffer to save the address
+ * @size_b: size of the buf
+ * Return: buff modified
+ */
 
 char *getAddress_p(void *p, char *buf, int size_b)
 {
