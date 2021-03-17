@@ -6,3 +6,16 @@ extra features.
 ## Flowchart used to create _printf.c
 
 ![](https://github.com/JoelRamirez2016/printf/blob/103f3b14146f11a837bb790d7efb05a824309a3e/images/printf_flowchart.jpg)
+
+## Files
+
+* holberton.h
+* _printf.c
+* Auxiliar files
+** auxiliars_1.c
+** auxiliars_2.c
+* Miscellaneous files:
+** miscellaneous_1.c
+** miscellaneous_2.c
+** miscellaneous_3.c
+
