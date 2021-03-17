@@ -46,6 +46,8 @@ int place_S(va_list args, char *buff, int *b_cnt,
 	if (s == NULL)
 		s = snull;
 	s = conv_non_printable(s);
+	if (s == NULL)
+		return (-1);
 	len = _strlen(s);
 
 	new_buffs += putInBuffer(buff, b_cnt, s, len);

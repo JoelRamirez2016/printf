@@ -105,6 +105,8 @@ char *conv_non_printable(char *s)
 
 	len = _strlen(s) + 1;
 	s_converted = malloc(sizeof(*s_converted) * len);
+	if (s_converted == NULL)
+		return (NULL);
 	for (i = 0; s[i]; i++)
 	{
 		if (s[i] >= 32 && s[i] <= 126)

@@ -89,7 +89,7 @@ int trav_format(va_list args, placeholders *ph, const char *format)
 void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 		    va_list args, char *buff, int *b_cnt)
 {
-	int i;
+	int i, new_buffs;
 	flag flags[] = {{'+', 0}, {' ', 0}, {'#', 0}, {0, 0}};
 
 	for (i = 0; flags[i].c; i++)
@@ -114,9 +114,10 @@ void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 	for (i = 0; ph[i].c; i++)
 		if (*(*trav + 1) == ph[i].c)
 		{
-			*used_buff +=
-				ph[i].place_function
+			new_buffs = ph[i].place_function
 				(args, buff, b_cnt, flags);
+			*used_buff = (new_buffs == -1) ? -1 :
+				*used_buff + new_buffs;
 			(*trav)++;
 			return;
 		}
