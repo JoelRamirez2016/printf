@@ -11,13 +11,11 @@ extra features.
 
 * holberton.h
 * _printf.c
-* Auxiliar files
-  Auxiliar files are used to store the place_x fuctios used to print each
+* Auxiliar files: Auxiliar files are used to store the place_x fuctios used to print each
 specific format.
   * auxiliars_1.c
   * auxiliars_2.c
-* Miscellaneous files:
-  Miscellaneous files are used to store every other function needed by the
+* Miscellaneous files: Miscellaneous files are used to store every other function needed by the
 auxiliars funcions or the _printf function itself
   * miscellaneous_1.c
   * miscellaneous_2.c
