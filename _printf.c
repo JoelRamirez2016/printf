@@ -92,6 +92,13 @@ void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 	int i;
 	flag flags[] = {{'+', 0}, {' ', 0}, {'#', 0}, {0, 0}};
 
+	for (i = 0; flags[i].c; i++)
+		if (*(*trav + 1) == flags[i].c)
+		{
+			flags[i].value = 1;
+			(*trav)++;
+			i = -1;
+		}
 	if (*(*trav + 1) == '%')
 	{
 		if (*b_cnt == BUFF_SIZE)
@@ -104,13 +111,6 @@ void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 		(*trav)++;
 		return;
 	}
-	for (i = 0; flags[i].c; i++)
-		if (*(*trav + 1) == flags[i].c)
-		{
-			flags[i].value = 1;
-			(*trav)++;
-			i = -1;
-		}
 	for (i = 0; ph[i].c; i++)
 		if (*(*trav + 1) == ph[i].c)
 		{

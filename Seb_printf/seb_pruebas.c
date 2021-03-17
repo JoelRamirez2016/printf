@@ -25,21 +25,22 @@ int main(void)
 {
 	int len = 0, len2 = 0;
 	int i, l;
-	char s1[5000] = "dia", *s2 = "C";
+	char s1[5000] = "\n% % % % ", *s2 = "C";
 	/* char *format = "A%s%s%%%c%s%s%s\n"; */
 	char largo[4000];
 	int fin = 256;
 	flag flags[] = {{'+', 0}, {' ', 0}, {'#', 0}, {0, 0}};
 
-	len = _printf("%#X\n", 0);
-	len2 = printf("%#X\n", 0);
-	printf("len = %d | len2 = %i\n", len, len2);
+//	write(1, s1, 10);
+	len = _printf(s1);
+	len2 = printf(s1);
+	printf("\nlen = %d | len2 = %i\n", len, len2);
+
 
 	#if 0
-	write(1, "\nz%z%z%z", 10);
-	len = _printf("\nz%z%z%z");
-	len2 = printf("\nz%z%z%z");
-	printf("\nlen = %d | len2 = %i\n", len, len2);
+	len = _printf("%#o\n", 0);
+	len2 = printf("%#o\n", 0);
+	printf("len = %d | len2 = %i\n", len, len2);
 
 	write(1, "\nz%z%z%z%z", 10);
 	len = _printf("\nz%z%z%z%z");
