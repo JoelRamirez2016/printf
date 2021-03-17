@@ -54,7 +54,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
  * @dest: buffer of 2 bytes minimum to store number converted
  * Return: nothing
  */
-void itohex_2bytes(int n, char *dest)
+void itohex_2bytes(unsigned int n, char *dest)
 {
 	int i, digit;
 

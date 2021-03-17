@@ -31,6 +31,10 @@ int main(void)
 	int fin = 2;
 
 
+	s1[1] = 200;
+	len = _printf("%s\n", s1);
+	len2 = _printf("%S\n", s1);
+	printf("len = %d | len2 = %i\n", len, len2);
 	flag flags[] = {{'+', 0}, {' ', 0}, {'#', 0}, {0, 0}};
 
 	for (i = 0; flags[i].c; i++)

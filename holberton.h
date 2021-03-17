@@ -64,7 +64,7 @@ char *_itoa(char sign, unsigned int num, char *nums);
 
 char *conv_non_printable(char *s);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-void itohex_2bytes(int n, char *dest);
+void itohex_2bytes(unsigned int n, char *dest);
 char *_itobi(unsigned int n, char *buff, int size);
 char *base_convert(char*, int, unsigned int, int, int);
 char *getAddress_p(void*, char*, int);
