@@ -55,3 +55,23 @@ void checkFlags(char *buff, int *b_cnt, flag *flags, int *new_buffs)
 	}
 
 }
+
+void arrangeFlags(char *order, flag *flags)
+{
+	flag aux_flag;
+	int i, j;
+
+	for (i = 0; order[i]; i++)
+	{
+		for (j = 0; flags[j].c; j++)
+		{
+			if (order[i] == flags[j].c)
+			{
+				aux_flag = flags[i];
+				flags[i] = flags[j];
+				flags[j] = aux_flag;
+				break;
+			}
+		}
+	}
+}

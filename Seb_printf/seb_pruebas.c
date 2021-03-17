@@ -30,8 +30,20 @@ int main(void)
 	char largo[4000];
 	int fin = 2;
 
-	len2 = printf("%   +s%  i -|%#x\n", "texto", 21, 31);
-	len = _printf("%   +s%  i -|%#x\n", "texto", 21, 31);
+
+	flag flags[] = {{'+', 0}, {' ', 0}, {'#', 0}, {0, 0}};
+
+	for (i = 0; flags[i].c; i++)
+	{
+		_printf("%c\n", flags[i].c);
+	}
+	arrangeFlags("# +", flags);
+	for (i = 0; flags[i].c; i++)
+	{
+		_printf("%c\n", flags[i].c);
+	}
+	len2 = printf("% #x - %X\n", 31, 31);
+	len = _printf("% #x - %X\n", 31, 31);
 	printf("len = %d | len2 = %i\n", len, len2);
 #if 0
 	len2 = printf("aaa% s", "hola");
