@@ -9,7 +9,7 @@
 .SH DESCRIPTION
 
 	the _printf funtion write in the standart output a user string formated that specifies how subsequent arguments
-	
+
 	FORMAT:
 
 	%c	print argument char
@@ -22,7 +22,7 @@
 
 	%d	print argument double
 
-	%b	print argument binary 
+	%b	print argument binary
 
 	%u	print argument unsigned int
 
@@ -38,11 +38,11 @@
 
 	HANDLES:
 
-	%+[ARGUMENT]
+	%+[ARGUMENT]	print a '+' sign before any number
 
-	% [ARGUMENT]
+	% [ARGUMENT]	print a ' ' before any number
 
-	%#[ARGUMENT]	
+	%#[ARGUMENT]	print "0x" before number when used with %x or %X format.
 
 .SH SEE ALSO
 

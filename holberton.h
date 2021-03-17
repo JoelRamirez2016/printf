@@ -1,7 +1,7 @@
 #ifndef printflib
 
 #define printflib
-#define BUFF_SIZE 1024
+#define BUFF_SIZE 10240
 
 #include <stdio.h>
 #include <stdarg.h>
