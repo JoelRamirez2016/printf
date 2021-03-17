@@ -94,8 +94,10 @@ int place_d(va_list args, char *buff, int *b_cnt,
 		num_s = _itoa('-', -num, num_holder);
 	else
 		num_s = _itoa('+', num, num_holder);
-
-	checkFlags(buff, b_cnt, flags, &new_buffs);
+	if (flags[0].value == 1 && num >= 0)
+		new_buffs += putInBuffer(buff, b_cnt, "+", 1);
+	else if (flags[1].value == 1 && num >= 0)
+		new_buffs += putInBuffer(buff, b_cnt, " ", 1);
 
 	len = _strlen(num_s);
 	new_buffs += putInBuffer(buff, b_cnt, num_s, len);

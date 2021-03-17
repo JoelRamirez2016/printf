@@ -31,10 +31,10 @@ int main(void)
 	int fin = 256;
 	flag flags[] = {{'+', 0}, {' ', 0}, {'#', 0}, {0, 0}};
 
-	len = _printf("%#o\n", 8);
-	len2 = printf("%#o\n", 8);
+	len = _printf("% +  i\n", INT_MAX);
+	len2 = printf("% +  i\n", INT_MAX);
 	printf("len = %d | len2 = %i\n", len, len2);
-
+#if 0
 	len = _printf("%#b\n", 100);
 	len2 = printf("%#b\n", 100);
 	printf("len = %d | len2 = %i\n", len, len2);
@@ -88,6 +88,6 @@ int main(void)
 
 
 	printf("len = %d | len2 = %i\n", len, len2);
-
+#endif
 	return (0);
 }
