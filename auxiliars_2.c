@@ -70,7 +70,7 @@ int place_o(va_list args, char *buff, int *b_cnt,
 	int new_buffs = 0, len;
 	char num_holder[13], *num_s;
 
-	if (flags[2].value == 1)
+	if (flags[2].value == 1 && num != 0)
 		new_buffs += putInBuffer(buff, b_cnt, "0", 1);
 	num_holder[13] = 0;
 
