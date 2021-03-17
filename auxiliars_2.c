@@ -10,16 +10,15 @@
  * Return: return number of new buffers needed to print string
  */
 int place_x(va_list args, char *buff, int *b_cnt,
-	    flag * flags)
+	    flag *flags)
 {
 	int num = va_arg(args, int);
 	int new_buffs = 0, len;
 	char num_holder[10], *num_s;
 
 	num_holder[10] = 0;
-
-	arrangeFlags("#+ ", flags);
-	
+	if (flags[2].value == 1)
+		new_buffs += putInBuffer(buff, b_cnt, "0x", 2);
 	num_s = base_convert(num_holder, 10, num, 16, 87);
 	len = _strlen(num_s);
 
@@ -38,13 +37,15 @@ int place_x(va_list args, char *buff, int *b_cnt,
  */
 
 int place_X(va_list args, char *buff, int *b_cnt,
-	    __attribute__ ((unused)) flag * flags)
+	    flag *flags)
 {
 	int num = va_arg(args, int);
 	int new_buffs = 0, len, available;
 	char num_holder[10], *num_s;
 
 	num_holder[10] = 0;
+	if (flags[2].value == 1)
+		new_buffs += putInBuffer(buff, b_cnt, "0x", 2);
 
 	num_s = base_convert(num_holder, 10, num, 16, 55);
 	len = _strlen(num_s);
@@ -78,7 +79,7 @@ int place_X(va_list args, char *buff, int *b_cnt,
  */
 
 int place_o(va_list args, char *buff, int *b_cnt,
-	    __attribute__ ((unused)) flag * flags)
+	    __attribute__ ((unused)) flag *flags)
 {
 	int num = va_arg(args, int);
 	int new_buffs = 0, len, available;
@@ -118,7 +119,7 @@ int place_o(va_list args, char *buff, int *b_cnt,
  * Return: return number of new buffers needed to print string
  */
 int place_u(va_list args, char *buff, int *b_cnt,
-	    __attribute__ ((unused)) flag * flags)
+	    __attribute__ ((unused)) flag *flags)
 {
 
 	int num = va_arg(args, int);
@@ -152,7 +153,7 @@ int place_u(va_list args, char *buff, int *b_cnt,
 }
 
 int place_p(va_list args, char *buff, int *b_cnt,
-	    __attribute__ ((unused)) flag * flags)
+	    __attribute__ ((unused)) flag *flags)
 {
 	char *s;
 	void *ptr = va_arg(args, void*);

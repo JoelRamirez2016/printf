@@ -1,6 +1,6 @@
 #include "../holberton.h"
 
-void spf(char *buffer, unsigned int size)
+void spb(char *buffer, unsigned int size)
 {
 	unsigned int i;
 
@@ -28,28 +28,25 @@ int main(void)
 	char s1[5000] = "dia", *s2 = "C";
 	/* char *format = "A%s%s%%%c%s%s%s\n"; */
 	char largo[4000];
-	int fin = 2;
+	int fin = 256;
+	flag flags[] = {{'+', 0}, {' ', 0}, {'#', 0}, {0, 0}};
 
+	len2 = printf("% #x - %#X\n", 31, 31);
+	len = _printf("% #x - %#X\n", 31, 31);
+	printf("len = %d | len2 = %i\n", len, len2);
+#if 0
 
-	s1[1] = 200;
+	for (i = 1; i < fin; i++)
+	{
+		s1[i - 1] = (char) i;
+	}
+
+	s1[fin - 1] = 0;
 	len = _printf("%s\n", s1);
 	len2 = _printf("%S\n", s1);
 	printf("len = %d | len2 = %i\n", len, len2);
-	flag flags[] = {{'+', 0}, {' ', 0}, {'#', 0}, {0, 0}};
 
-	for (i = 0; flags[i].c; i++)
-	{
-		_printf("%c\n", flags[i].c);
-	}
-	arrangeFlags("# +", flags);
-	for (i = 0; flags[i].c; i++)
-	{
-		_printf("%c\n", flags[i].c);
-	}
-	len2 = printf("% #x - %X\n", 31, 31);
-	len = _printf("% #x - %X\n", 31, 31);
-	printf("len = %d | len2 = %i\n", len, len2);
-#if 0
+	spb(s1, 3);
 	len2 = printf("aaa% s", "hola");
 	len = _printf("bbb%");
 	printf("len = %d | len2 = %i\n", len, len2);
