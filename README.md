@@ -5,5 +5,4 @@ extra features.
 
 ## Flowchart used to create _printf.c
 
-![](https://drive.google.com/file/d/1z_DfH82ngiM_o0IIWPPw4rKaNbhS1HHh/view?usp=sharing)
-
+![](https://github.com/JoelRamirez2016/printf/blob/103f3b14146f11a837bb790d7efb05a824309a3e/images/printf_flowchart.jpg)
