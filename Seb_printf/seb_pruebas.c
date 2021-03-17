@@ -31,10 +31,19 @@ int main(void)
 	int fin = 256;
 	flag flags[] = {{'+', 0}, {' ', 0}, {'#', 0}, {0, 0}};
 
+	len = _printf("%#o\n", 8);
+	len2 = printf("%#o\n", 8);
+	printf("len = %d | len2 = %i\n", len, len2);
+
+	len = _printf("%#b\n", 100);
+	len2 = printf("%#b\n", 100);
+	printf("len = %d | len2 = %i\n", len, len2);
+
+#if 0
 	len2 = printf("% #x - %#X\n", 31, 31);
 	len = _printf("% #x - %#X\n", 31, 31);
 	printf("len = %d | len2 = %i\n", len, len2);
-#if 0
+
 
 	for (i = 1; i < fin; i++)
 	{
