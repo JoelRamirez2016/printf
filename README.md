@@ -12,10 +12,9 @@ extra features.
 * holberton.h
 * _printf.c
 * Auxiliar files
-** auxiliars_1.c
-** auxiliars_2.c
+  * auxiliars_1.c
+  * auxiliars_2.c
 * Miscellaneous files:
-** miscellaneous_1.c
-** miscellaneous_2.c
-** miscellaneous_3.c
-
+  * miscellaneous_1.c
+  * miscellaneous_2.c
+  * miscellaneous_3.c
