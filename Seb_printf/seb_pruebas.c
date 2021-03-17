@@ -24,17 +24,37 @@ void spb(char *buffer, unsigned int size)
 int main(void)
 {
 	int len = 0, len2 = 0;
-	int i;
+	int i, l;
 	char s1[5000] = "dia", *s2 = "C";
 	/* char *format = "A%s%s%%%c%s%s%s\n"; */
 	char largo[4000];
 	int fin = 256;
 	flag flags[] = {{'+', 0}, {' ', 0}, {'#', 0}, {0, 0}};
 
+	len = _printf("%#X\n", 0);
+	len2 = printf("%#X\n", 0);
+	printf("len = %d | len2 = %i\n", len, len2);
+
+	#if 0
+	write(1, "\nz%z%z%z", 10);
+	len = _printf("\nz%z%z%z");
+	len2 = printf("\nz%z%z%z");
+	printf("\nlen = %d | len2 = %i\n", len, len2);
+
+	write(1, "\nz%z%z%z%z", 10);
+	len = _printf("\nz%z%z%z%z");
+	len2 = printf("\nz%z%z%z%z");
+	printf("\nlen = %d | len2 = %i\n", len, len2);
+
+	l = INT_MAX + 1024;
+	len = _printf("%+d\n", l);
+	len2 = printf("%+d\n", l);
+	printf("len = %d | len2 = %i\n", len, len2);
+
 	len = _printf("% +  i\n", INT_MAX);
 	len2 = printf("% +  i\n", INT_MAX);
 	printf("len = %d | len2 = %i\n", len, len2);
-#if 0
+
 	len = _printf("%#b\n", 100);
 	len2 = printf("%#b\n", 100);
 	printf("len = %d | len2 = %i\n", len, len2);

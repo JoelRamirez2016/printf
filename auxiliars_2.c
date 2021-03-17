@@ -17,7 +17,7 @@ int place_x(va_list args, char *buff, int *b_cnt,
 	char num_holder[10], *num_s;
 
 	num_holder[10] = 0;
-	if (flags[2].value == 1)
+	if (flags[2].value == 1 && num != 0)
 		new_buffs += putInBuffer(buff, b_cnt, "0x", 2);
 	num_s = base_convert(num_holder, 10, num, 16, 87);
 	len = _strlen(num_s);
@@ -44,8 +44,8 @@ int place_X(va_list args, char *buff, int *b_cnt,
 	char num_holder[10], *num_s;
 
 	num_holder[10] = 0;
-	if (flags[2].value == 1)
-		new_buffs += putInBuffer(buff, b_cnt, "0x", 2);
+	if (flags[2].value == 1 && num != 0)
+		new_buffs += putInBuffer(buff, b_cnt, "0X", 2);
 
 	num_s = base_convert(num_holder, 10, num, 16, 55);
 	len = _strlen(num_s);
