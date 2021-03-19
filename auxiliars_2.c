@@ -12,9 +12,16 @@
 int place_x(va_list args, char *buff, int *b_cnt,
 	    flag *flags)
 {
-	int num = va_arg(args, int);
+	long int num;
 	int new_buffs = 0, len;
 	char num_holder[10], *num_s;
+
+	if (flags[3].value)
+		num = va_arg(args, long int);
+	else if (flags[4].value)
+		num = (short) va_arg(args, int);
+	else
+		num = va_arg(args, int);
 
 	num_holder[10] = 0;
 	if (flags[2].value == 1 && num != 0)
@@ -39,9 +46,16 @@ int place_x(va_list args, char *buff, int *b_cnt,
 int place_X(va_list args, char *buff, int *b_cnt,
 	    flag *flags)
 {
-	int num = va_arg(args, int);
+	long int num;
 	int new_buffs = 0, len;
 	char num_holder[10], *num_s;
+
+	if (flags[3].value)
+		num = va_arg(args, long int);
+	else if (flags[4].value)
+		num = (short) va_arg(args, int);
+	else
+		num = va_arg(args, int);
 
 	num_holder[10] = 0;
 	if (flags[2].value == 1 && num != 0)
@@ -66,9 +80,16 @@ int place_X(va_list args, char *buff, int *b_cnt,
 int place_o(va_list args, char *buff, int *b_cnt,
 	    flag *flags)
 {
-	int num = va_arg(args, int);
+	long int num;
 	int new_buffs = 0, len;
 	char num_holder[13], *num_s;
+
+	if (flags[3].value)
+		num = va_arg(args, long int);
+	else if (flags[4].value)
+		num = (short) va_arg(args, int);
+	else
+		num = va_arg(args, int);
 
 	if (flags[2].value == 1 && num != 0)
 		new_buffs += putInBuffer(buff, b_cnt, "0", 1);
@@ -91,13 +112,20 @@ int place_o(va_list args, char *buff, int *b_cnt,
  * Return: return number of new buffers needed to print string
  */
 int place_u(va_list args, char *buff, int *b_cnt,
-	    __attribute__ ((unused)) flag *flags)
+	    flag *flags)
 {
 
-	int num = va_arg(args, int);
+	long int num;
 	unsigned int number;
 	int new_buffs = 0, len, available;
 	char num_holder[12], *num_s;
+
+	if (flags[3].value)
+		num = va_arg(args, long int);
+	else if (flags[4].value)
+		num = (short) va_arg(args, int);
+	else
+		num = va_arg(args, int);
 
 	if (num < 0)
 		number = UINT_MAX + (num + 1);

@@ -32,8 +32,8 @@ int main(void)
 	flag flags[] = {{'+', 0}, {' ', 0}, {'#', 0}, {0, 0}};
 
 
-	len = _printf("%hi\n", 3234432);
-	len2 = printf("%hi\n", 3234432);
+	len = _printf("%#lx\n", 1024UL);
+	len2 = printf("%#lx\n", 1024UL);
 	printf("len = %d | len2 = %i\n", len, len2);
 
 #if 0

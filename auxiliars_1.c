@@ -86,12 +86,18 @@ int place_c(va_list args, char *buff, int *b_cnt,
  * Return: return number of new buffers needed to print string
  */
 int place_d(va_list args, char *buff, int *b_cnt,
-	    __attribute__ ((unused)) flag * flags)
+	    flag *flags)
 {
-	int num = va_arg(args, int);
+	long int num;
 	int new_buffs = 0, len;
 	char num_holder[12], *num_s;
 
+	if (flags[3].value)
+		num = va_arg(args, long int);
+	else if (flags[4].value)
+		num = (short) va_arg(args, int);
+	else
+		num = va_arg(args, int);
 	if (num < 0)
 		num_s = _itoa('-', -num, num_holder);
 	else
