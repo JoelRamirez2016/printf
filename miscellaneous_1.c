@@ -68,11 +68,11 @@ int fillnewbuff(char *buff, char *src, int to_write, int buff_size, int *b_cnt)
  * @sign: sing char
  * Return: pointer to first byte of number as a string
  */
-char *_itoa(char sign, unsigned int num, char *nums)
+char *_itoa(int buffsize, char sign, unsigned long int num, char *nums)
 {
-	int i = 10, negative = 0, digit;
+	int i = buffsize - 2, negative = 0, digit;
 
-	nums[11] = 0;
+	nums[buffsize - 1] = 0;
 	if (sign == '-')
 	{
 		negative = 1;

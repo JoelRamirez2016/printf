@@ -90,7 +90,7 @@ int place_d(va_list args, char *buff, int *b_cnt,
 {
 	long int num;
 	int new_buffs = 0, len;
-	char num_holder[12], *num_s;
+	char num_holder[25], *num_s;
 
 	if (flags[3].value)
 		num = va_arg(args, long int);
@@ -99,9 +99,9 @@ int place_d(va_list args, char *buff, int *b_cnt,
 	else
 		num = va_arg(args, int);
 	if (num < 0)
-		num_s = _itoa('-', -num, num_holder);
+		num_s = _itoa(25, '-', -num, num_holder);
 	else
-		num_s = _itoa('+', num, num_holder);
+		num_s = _itoa(25, '+', num, num_holder);
 	if (flags[0].value == 1 && num >= 0)
 		new_buffs += putInBuffer(buff, b_cnt, "+", 1);
 	else if (flags[1].value == 1 && num >= 0)

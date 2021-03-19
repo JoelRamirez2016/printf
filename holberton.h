@@ -60,7 +60,7 @@ int place_p(va_list args, char *buff, int *b_cnt, flag *flags);
 int _strlen(char *);
 char *_strncpy(char *dest, char *src, int n);
 int fillnewbuff(char *buff, char *src, int n, int buff_size, int *b_cnt);
-char *_itoa(char sign, unsigned int num, char *nums);
+char *_itoa(int buffsize, char sign, unsigned long int num, char *nums);
 
 char *conv_non_printable(char *s);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);

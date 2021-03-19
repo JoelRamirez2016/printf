@@ -82,7 +82,7 @@ int place_o(va_list args, char *buff, int *b_cnt,
 {
 	long int num;
 	int new_buffs = 0, len;
-	char num_holder[13], *num_s;
+	char num_holder[27], *num_s;
 
 	if (flags[3].value)
 		num = va_arg(args, long int);
@@ -95,7 +95,7 @@ int place_o(va_list args, char *buff, int *b_cnt,
 		new_buffs += putInBuffer(buff, b_cnt, "0", 1);
 	num_holder[13] = 0;
 
-	num_s = base_convert(num_holder, 13, num, 8, 0);
+	num_s = base_convert(num_holder, 27, num, 8, 0);
 	len = _strlen(num_s);
 	new_buffs += putInBuffer(buff, b_cnt, num_s, len);
 	return (new_buffs);
@@ -118,7 +118,7 @@ int place_u(va_list args, char *buff, int *b_cnt,
 	long int num;
 	unsigned int number;
 	int new_buffs = 0, len, available;
-	char num_holder[12], *num_s;
+	char num_holder[25], *num_s;
 
 	if (flags[3].value)
 		num = va_arg(args, long int);
@@ -132,7 +132,7 @@ int place_u(va_list args, char *buff, int *b_cnt,
 	else
 		number = num;
 
-	num_s = _itoa('+', number, num_holder);
+	num_s = _itoa(25, '+', number, num_holder);
 	len = _strlen(num_s);
 	available = BUFF_SIZE - *b_cnt;
 
