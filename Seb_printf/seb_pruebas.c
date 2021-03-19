@@ -31,13 +31,21 @@ int main(void)
 	int fin = 256;
 	flag flags[] = {{'+', 0}, {' ', 0}, {'#', 0}, {0, 0}};
 
+
+	len = _printf("%hi\n", 3234432);
+	len2 = printf("%hi\n", 3234432);
+	printf("len = %d | len2 = %i\n", len, len2);
+
+#if 0
+	_printf("hello %s %d %d %d %d", "hello");
+
 //	write(1, s1, 10);
 	len = _printf(s1);
 	len2 = printf(s1);
 	printf("\nlen = %d | len2 = %i\n", len, len2);
 
 
-	#if 0
+
 	len = _printf("%#o\n", 0);
 	len2 = printf("%#o\n", 0);
 	printf("len = %d | len2 = %i\n", len, len2);
