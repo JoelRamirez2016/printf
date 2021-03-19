@@ -105,7 +105,7 @@ char *_itobi(unsigned int n, char *buff, int size)
 */
 
 char *base_convert(char *buff, int size_b,
-		   unsigned int n, int base, int aditionalChars)
+		   unsigned long int n, int base, int aditionalChars)
 {
 	if (n % base < 10)
 		buff[size_b - 1] = (n % base) + '0';

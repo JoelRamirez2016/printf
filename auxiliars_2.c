@@ -93,9 +93,9 @@ int place_o(va_list args, char *buff, int *b_cnt,
 
 	if (flags[2].value == 1 && num != 0)
 		new_buffs += putInBuffer(buff, b_cnt, "0", 1);
-	num_holder[13] = 0;
+	num_holder[26] = 0;
 
-	num_s = base_convert(num_holder, 27, num, 8, 0);
+	num_s = base_convert(num_holder, 26, num, 8, 0);
 	len = _strlen(num_s);
 	new_buffs += putInBuffer(buff, b_cnt, num_s, len);
 	return (new_buffs);
