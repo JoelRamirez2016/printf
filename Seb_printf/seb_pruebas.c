@@ -31,8 +31,8 @@ int main(void)
 	int fin = 256;
 	flag flags[] = {{'+', 0}, {' ', 0}, {'#', 0}, {0, 0}};
 
-	len = _printf("%ld\n", LONG_MAX);
-	len2 = printf("%ld\n", LONG_MAX);
+	len = _printf("%lu\n", ULONG_MAX);
+	len2 = printf("%lu\n", ULONG_MAX);
 	printf("len = %d | len2 = %i\n", len, len2);
 
 #if 0

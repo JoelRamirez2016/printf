@@ -111,44 +111,22 @@ int place_o(va_list args, char *buff, int *b_cnt,
  * @flags: structure with flags activated to have into account
  * Return: return number of new buffers needed to print string
  */
-int place_u(va_list args, char *buff, int *b_cnt,
-	    flag *flags)
+int place_u(va_list args, char *buff, int *b_cnt, flag *flags)
 {
-
-	long int num;
-	unsigned int number;
-	int new_buffs = 0, len, available;
+	unsigned long int num;
+	int new_buffs = 0, len;
 	char num_holder[25], *num_s;
 
 	if (flags[3].value)
-		num = va_arg(args, long int);
+		num = va_arg(args, unsigned long int);
 	else if (flags[4].value)
 		num = (short) va_arg(args, int);
 	else
 		num = va_arg(args, int);
 
-	if (num < 0)
-		number = UINT_MAX + (num + 1);
-	else
-		number = num;
-
-	num_s = _itoa(25, '+', number, num_holder);
+	num_s = _itoa(25, '+', num, num_holder);
 	len = _strlen(num_s);
-	available = BUFF_SIZE - *b_cnt;
-
-	if (available >= len)
-	{
-		_strncpy(buff + *b_cnt, num_s, len);
-		(*b_cnt) += len;
-	}
-	else
-	{
-		_strncpy(buff + *b_cnt, num_s, available);
-		write(1, buff, BUFF_SIZE);
-		(*b_cnt) = 0;
-		new_buffs += fillnewbuff(buff, num_s + available, len - available,
-					BUFF_SIZE, b_cnt);
-	}
+	new_buffs = putInBuffer(buff, b_cnt, num_s, len);
 	return (new_buffs);
 }
 

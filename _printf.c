@@ -102,7 +102,7 @@ void trav_holders(placeholders *ph, const char **trav, int *used_buff,
 		}
 	if (*(*trav + 1) == '%')
 	{
-		putInBuffer(buff, b_cnt, "%", 1);
+		*used_buff += putInBuffer(buff, b_cnt, "%", 1);
 		return;
 	}
 	for (i = 0; ph[i].c; i++)
