@@ -72,6 +72,7 @@ char *_itoa(int buffsize, char sign, unsigned long int num, char *nums)
 {
 	int i = buffsize - 2, negative = 0, digit;
 
+	printf("num inside itoa = \n%lu\n", (short) num);
 	nums[buffsize - 1] = 0;
 	if (sign == '-')
 	{

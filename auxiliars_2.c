@@ -14,7 +14,7 @@ int place_x(va_list args, char *buff, int *b_cnt,
 {
 	long int num;
 	int new_buffs = 0, len;
-	char num_holder[10], *num_s;
+	char num_holder[17], *num_s;
 
 	if (flags[3].value)
 		num = va_arg(args, long int);
@@ -23,10 +23,11 @@ int place_x(va_list args, char *buff, int *b_cnt,
 	else
 		num = va_arg(args, int);
 
-	num_holder[10] = 0;
+	printf("num =\n%lx\n", ULONG_MAX);
+	num_holder[16] = 0;
 	if (flags[2].value == 1 && num != 0)
 		new_buffs += putInBuffer(buff, b_cnt, "0x", 2);
-	num_s = base_convert(num_holder, 10, num, 16, 87);
+	num_s = base_convert(num_holder, 16, num, 16, 87);
 	len = _strlen(num_s);
 
 	new_buffs += putInBuffer(buff, b_cnt, num_s, len);
@@ -48,7 +49,7 @@ int place_X(va_list args, char *buff, int *b_cnt,
 {
 	long int num;
 	int new_buffs = 0, len;
-	char num_holder[10], *num_s;
+	char num_holder[17], *num_s;
 
 	if (flags[3].value)
 		num = va_arg(args, long int);
@@ -57,11 +58,11 @@ int place_X(va_list args, char *buff, int *b_cnt,
 	else
 		num = va_arg(args, int);
 
-	num_holder[10] = 0;
+	num_holder[16] = 0;
 	if (flags[2].value == 1 && num != 0)
 		new_buffs += putInBuffer(buff, b_cnt, "0X", 2);
 
-	num_s = base_convert(num_holder, 10, num, 16, 55);
+	num_s = base_convert(num_holder, 16, num, 16, 55);
 	len = _strlen(num_s);
 	new_buffs += putInBuffer(buff, b_cnt, num_s, len);
 	return (new_buffs);
@@ -124,7 +125,9 @@ int place_u(va_list args, char *buff, int *b_cnt, flag *flags)
 	else
 		num = va_arg(args, int);
 
+	printf("num = \n%hu\n", num);
 	num_s = _itoa(25, '+', num, num_holder);
+	printf("nums = \n%s\n", num_s);
 	len = _strlen(num_s);
 	new_buffs = putInBuffer(buff, b_cnt, num_s, len);
 	return (new_buffs);
