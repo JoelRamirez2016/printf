@@ -10,7 +10,7 @@
  * Return: return number of new buffers needed to print string
  */
 int place_s(va_list args, char *buff, int *b_cnt,
-	    __attribute__ ((unused)) flag * flags)
+		__attribute__ ((unused)) flag * flags)
 {
 	char *s = va_arg(args, char *);
 	int new_buffs = 0, len;
@@ -37,7 +37,7 @@ int place_s(va_list args, char *buff, int *b_cnt,
  * Return: return number of new buffers needed to print string
  */
 int place_S(va_list args, char *buff, int *b_cnt,
-	    __attribute__ ((unused)) flag * flags)
+		__attribute__ ((unused)) flag * flags)
 {
 	char *s = va_arg(args, char *);
 	int new_buffs = 0, len;
@@ -67,7 +67,7 @@ int place_S(va_list args, char *buff, int *b_cnt,
  * Return: return number of new buffers needed to print string
  */
 int place_c(va_list args, char *buff, int *b_cnt,
-	    __attribute__ ((unused)) flag * flags)
+		__attribute__ ((unused)) flag * flags)
 {
 	char c = va_arg(args, int);
 	int new_buff = 0;
@@ -86,7 +86,7 @@ int place_c(va_list args, char *buff, int *b_cnt,
  * Return: return number of new buffers needed to print string
  */
 int place_d(va_list args, char *buff, int *b_cnt,
-	    flag *flags)
+		flag *flags)
 {
 	long int num;
 	int new_buffs = 0, len;
@@ -122,7 +122,7 @@ int place_d(va_list args, char *buff, int *b_cnt,
  * Return: return number of new buffers needed to print string
  */
 int place_b(va_list args, char *buff, int *b_cnt,
-	    __attribute__ ((unused)) flag * flags)
+		__attribute__ ((unused)) flag * flags)
 {
 	int num = va_arg(args, int);
 	int new_buffs = 0, len;
@@ -133,3 +133,4 @@ int place_b(va_list args, char *buff, int *b_cnt,
 	new_buffs += putInBuffer(buff, b_cnt, num_s, len);
 	return (new_buffs);
 }
+/* test */
